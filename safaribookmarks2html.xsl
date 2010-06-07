@@ -19,40 +19,8 @@
 <html>
 
 	<head>
-	
 		<title>Safari Bookmarks</title>
-	
-		<style type="text/css">
-			.category	
-			{
-				border-color: #333333;
-				border-style: solid;
-				border-width: 1px;
-				margin: 10px 4px 4px 10px;
-				background-color: #cccccc;
-			}
-			.indent { margin-left: 10px; }
-			.categorytitle	
-			{
-				font-family: Georgia;
-				font-size: 16px;
-				font-weight: bold;
-				font-style: italic;
-				color: white;
-				background-color: #333333;
-				padding: 1px;
-			}
-			.link	
-			{
-				font-family: Georgia;
-				font-size: 14px;
-				font-weight: normal;
-				margin: 2px 2px 2px 10px;
-			}
-			a { text-decoration: none; }
-			a:hover { text-decoration: underline; }
-		</style>
-	
+		<link rel="stylesheet" type="text/css" href="basic.css" />
 	</head>
 
 	<body>
@@ -85,7 +53,9 @@
      it is more specific it will have precedence over the one above. -->
 <xsl:template match="dict[key[text() = 'URIDictionary']]">
 
-		<div class="link"><a href="{string[preceding-sibling::key[text() = 'URLString']]}"><xsl:value-of select="dict[preceding-sibling::key[text() = 'URIDictionary']]/string[preceding-sibling::key[text() = 'title']]"/></a></div>
+		<div class="link">
+			<a href="{string[preceding-sibling::key[text() = 'URLString']]}"><xsl:value-of select="dict[preceding-sibling::key[text() = 'URIDictionary']]/string[preceding-sibling::key[text() = 'title']]"/></a>
+		</div>
 
 </xsl:template>
 
